@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille | Data Scraping</title>
+</head>
+<body>
+    <p> <h1> <strong>Sommaire</strong></h1>
+        <ul>
+            <li><a href="#intro">Introduction</a> </li>
+            <li><a href="#Desc">Description Scraping de données</a> </li>
+            <li><a href="#Scrap">Comment Scraper</a> </li>
+            <li><a href="#Best">Best Web Scraping</a></li>
+            <li><a href="#Bot">Les Bots</a></li>
+            <li><a href="#Lutte">Lutter contre le scrapping</a></li>
+            <li><a href="#Annexe">Les Annexes</a></li>
+        </ul>
+    </p>
+    <article>
+        <h1 id="intro">Introduction</h1>
+        <p>Chaque seconde, 29 000 Go d’informations 
+            sont publiées dans le monde. Si le web a un usage principal, 
+            c’est bien de servir de support pour échanger et stocker de 
+            l’information. Ces informations peuvent ensuite utilisées par vous … 
+            ou votre entreprise. <hr> En tant qu’entreprise, vous pourriez connaître 
+            le comportement d’achat de vos segments clients et établir 
+            des prévisions de vente solides avec des techniques de big 
+            data. En tant que particulier, vous pouvez vous renseigner de 
+            manière extensive sur un sujet particulier : c’est le travail 
+            réalisé d’un moteur de recherche.  </p>
+    </article>
+    <article>
+        <h1 id="Desc" >Qu’est-ce que le scraping de données ?</h1>
+        <p>To scrape, en anglais, signifie « gratter » en français. Scraper des données, c’est « gratter » des pages web pour stocker l’information voulue. 
+            Cela revient à copier-coller du contenu d’une page web, mais le scraping est en général assuré par des bots, ou robots, qui s’occupent de ce 
+            travail périodiquement.
+                Mais un bot qui ne peut pas scraper des données que d’une page web est limité. Il faut que le bot soit capable de « ramper » d’une page à 
+                une autre, de manière à pouvoir récupérer toutes les données d’un site internet. C’est bien plus rapide que de scraper page web par page 
+                web, manuellement. Le « rampage », « crawling » en anglais, est systématiquement assuré par les bots de scraping. Il s’agit  de visiter une page 
+                web, récupérer ses URL internes, les mettre en queue, et visiter ensuite ces pages, et ainsi de suite.</p>
+            <pre>Pour comprendre le scraping, il est nécessaire de comprendre les éléments suivants :
+            - Un site internet est constitué de pages web, accessibles par des hyperliens dans d’autres pages web
+            - Une page web est un fichier HTML retourné par le serveur, et associée à du javascript et des feuilles de style CSS. 
+            Ces fichiers HTML, .js et .css sont appelés fichiers sources.
+            - L’information est entièrement contenue dans la page HTML que le serveur a envoyé. Pour accéder à cette information, il faut ouvrir 
+            le fichier HTML et la chercher dans les balises (utiliser XPath ou CSS). 
+            Un outil de scraping complet, c’est un outil qui, à partir d’un ou plusieurs sites internet, crawl de page en page en ouvrant les fichiers sources 
+            et en récupérant ce qu’on veut récupérer.
+            </pre>
+        </article>
+    <article>
+        <h1 id="Scrap">Comment scraper ?</h1>
+        <p>Pour scraper des données sans avoir à coder les robots dans leur totalité, ce qui demanderait des connaissances solides en PHP (ou java / python),
+            Javascript, HTML, CSS et XPath, nous vous proposons les trois outils gratuits suivants :</p>
+        <ul>
+            <li><a href="https://import.io/"> Import.io</a><br>Ce site très simple mais limité est disponible gratuitement en ligne au travers de deux APIs : <br>
+                <p><ul>
+                    <li>Magic : l’outil mis en vedette du site. Il permet, selon une liste d’URL de page web, de scraper automatiquement toute l’information. 
+                        Celle-ci est alors disponible sous la forme d’un tableau exportable en .csv, .xlmls ou .sheets pour analyse.</li>
+                    <li>Extractor : le second outil vedette. Il permet de scraper l’information sélectionnée par clic dans un type de page web.</li>
+                    <p>Ces outils sont complétés par d’autres API : Crawler et Connector, qui permet d'enregistrer sur une séquence 
+                        d’action pour se déplacer le site et exécuter Extractor aux endroits voulues.
+                        Import.io est très simple et ne demande pas de connaissances en programmation.</p>
+                </ul> </p>
+            </li>
+            <li><a href="https://www.kimonolabs.com/">Kimono</a> <br>A l’instar d’Import.io, Kimono est très simple et ne demande pas de connaissances 
+                techniques approfondies, bien que des connaissances en HTML et javascript permettent à l’utilisateur d’aller plus loin.
+                 <br>
+                <p>Aujourd’hui, le service en ligne de Kimono n’est plus assuré. Il reste cependant la possibilité d’utiliser l’API par l’application Desktop. 
+                    L’application permet de, selon une liste d’URL, extraire de l’information selon des scénarios définies au clic.
+                    Cette manière de faire est un peu plus précise qu’Import.io. Il est aussi possible de naviguer dans la pagination d’une longue page. 
+                    L’information est présentée sous forme de tableau. A l’issu de l’extraction, 
+                    Kimono Desktop propose à l’utilisateur de filtrer les résultats par un script javascript écrit à la main, si voulu.  
+                    Malheureusement, avec la version Desktop, Kimono ne propose plus l’extraction de données selon des scénarios, 
+                    comme le propose Import.io par « Connector » et « Extractor ».</p>
+            </li>
+            <li><a href="http://scrapy.org/">Scrapy</a> <br>
+                <p>Scrapy est un framework collaboratif and open-source pour extraire des données. Il est rapide, et facilement extensible, 
+                    mais il s’adresse aux développeurs ayant des connaissances en python et connaissant XPath. Le framework possède en plus une 
+                    documentation extensive pour comprendre son fonctionnement. Parmi les composants du framework – scrapy engine, scheduler, 
+                    downloader, spiders, item pipeline -, seuls les spiders sont à écrire par l’utilisateur.</p>
+                <p>Les spiders sont des scripts appelant les différents composants qui spécifient où scraper les données, quoi scraper et comment le faire.
+                    Les données, sous la forme d’item, peuvent être exportées sous un format spécifique avec un peu de programmation.
+                    Scrapy est donc un excellent outil pour scraper des données, quoiqu’il s’adresse à des utilisateurs avancés. </p>
+            </li>
+        </ul>
+    </article>
+<h2>15 Best Web Scraping</h2>
+    <ol>
+        <li> Scrapingbee
+            <p>Scrapingbee est une API de scraping Web qui gère les navigateurs sans tête et la gestion des proxy. Il peut exécuter 
+                Javascript sur les pages et faire pivoter les proxys pour chaque requête afin que vous obteniez la page HTML brute sans être bloqué. 
+                Ils ont également une API dédiée pour le scraping de recherche Google</p>
+        </li>
+        <p> Autres Exemples: <br> Octoparse,  Scraping-Bot, Bright Data (formerly Luminati), xtract.io, Scrapestack,  Scraper API,  Apify SDK, Agenty, 
+            Webhose.io, Dexi Intelligent, Outwit, PareseHub, Diffbot, Data streamer, FMiner, Content Grabber, 
+            Mozenda, Web Scraper Chrome Extension </p>
+    </ol>
+    <h2>Qu’est ce qu’une fraude au clic ? | Comment 
+        fonctionnent les bots de clic</h2>
+        <h4>Qu’est-ce qu’un bot ? | Définition d’un bot</h4>
+            <p>Un bot est un agent logiciel qui fonctionne sur Internet et effectue des tâches répétitives. Tandis qu’une partie du trafic 
+                bot est généré par de bons bots, les mauvais bots peuvent avoir un impact très négatif sur un site web ou une application.
+            <br>Un bot est une application logicielle programmée pour effectuer certaines tâches. Les bots sont automatisés, ce qui 
+            signifie qu’ils fonctionnent selon les instructions qu’ils reçoivent sans qu’un utilisateur humain n’ait besoin de les démarrer. 
+            Les bots imitent ou remplacent souvent le comportement d’un utilisateur humain. En général, ils effectuent des tâches répétitives 
+            et peuvent les réaliser beaucoup plus rapidement que les utilisateurs humains.
+            <br> Les bots peuvent prendre différentes formes : <br>
+                <ul>
+                    <li>Chatbots : bots qui simulent la conversation humaine en répondant à certaines phrases avec des réponses programmées</li>
+                    <li>Robot d’indexation du Web (Googlebots) : bots qui analysent le contenu des pages Web partout sur Internet</li>
+                    <li>Bots sociaux : bots qui fonctionnent sur les plate-formes de médias sociaux</li>
+                    <li>Bots <strong>malveillants</strong> : bots qui « scrapent » du contenu, diffusent du contenu de type spam ou mènent des attaques de credential stuffing</li>
+                </ul>
+        </p>
+        <h1>Comment lutter contre le web Scraping</h1>
+        <h2>Vol de contenu : 7 techniques pour lutter contre le scraping de votre site</h2>
+        <ol>
+            <li>Ne pas afficher d’informations sensibles sur votre site web
+                <p>Cela peut paraître évident, mais c’est la première chose à faire si vous craignez vraiment que des scrapers ne volent vos informations. Après tout, le scraping de sites web n’est qu’un moyen d’automatiser l’accès à un site web donné. Si vous êtes d’accord pour partager votre contenu avec toute personne visitant votre site, peut-être n’avez-vous pas besoin de vous inquiéter des scrapers.
+                    Après tout, Google est le plus grand scraper du monde et personne ne semble s’inquiéter lorsque Google indexe leur contenu. Mais si vous craignez qu’il tombe entre de mauvaises mains, alors peut-être qu’il ne devrait pas se trouver là, tout simplement.</p>
+            </li>
+            <li>Limiter le débit pour les adresses IP individuelles
+                <p>Si vous recevez des milliers de requêtes à partir d’un seul ordinateur, il y a de fortes chances que la personne qui se trouve derrière ait lancé un scraping automatisé sur votre site. Le blocage des requêtes provenant d’ordinateurs qui sollicitent un serveur à un rythme trop élevé est l’une des premières mesures que les sites emploient pour arrêter les scrapers de pages web.</p>
+            </li>
+            <li>Utiliser des CAPTCHAs
+                <p>Vous le savez, les CAPTCHAs sont conçus pour distinguer les humains des ordinateurs, en présentant des problèmes que les humains trouvent faciles, mais que les ordinateurs ont du mal à résoudre.
+
+                    Si les humains ont tendance à trouver ces problèmes faciles, ils ont aussi tendance à les trouver extrêmement ennuyeux. Les CAPTCHAs peuvent être utiles, mais doivent donc être utilisés avec parcimonie. Si un visiteur procède à des dizaines de requêtes par secondes, proposez-lui un CAPTCHA, en expliquant éventuellement que son activité est suspecte. Inutile d’embêter tous les visiteurs…</p>
+            </li>
+            <li>Créer des pages « Honeypot »
+                <p>Une technique que j’aime beaucoup : les honeypots (littéralement pots de miel, ou pages leurres) sont des pages qu’un visiteur humain ne visiterait jamais. Un robot chargé de cliquer sur chaque lien d’une page, lui, pourrait tomber dessus.
+                    Par exemple, le lien est peut-être configuré en display: none; dans le CSS, ou écrit en blanc sur fond blanc pour se fondre dans l’arrière-plan de la page.
+                    Lorsqu’une IP visite une page leurre, vous pouvez raisonnablement penser qu’il ne s’agit pas d’un visiteur humain, et limiter ou bloquer toutes les requêtes de ce client.</p>
+            </li>
+            <li>Exiger une connexion pour l’accès
+                <p>HTTP est un protocole intrinsèquement apatride, ce qui signifie qu’aucune information n’est conservée d’une requête à l’autre, bien que la plupart des clients HTTP (comme les navigateurs) stockent des éléments tels que les cookies de session.
+                    Cela signifie qu’un scraper n’a pas besoin de s’identifier pour accéder à une page web publique. Mais si cette page est protégée par un identifiant, le scraper doit alors envoyer des informations d’identification avec chaque requête (le cookie de session) afin de visualiser le contenu, qui peut ensuite être tracé pour voir qui scrape votre site.
+                    Cela ne mettra pas fin au scraping, mais vous donnera au moins un aperçu de l’identité des personnes qui accèdent à votre contenu pour se l’accaparer.</p>
+            </li>
+            <li>Changer régulièrement le HTML de votre site web
+                <p>Les scrapers s’appuient sur la recherche de schémas dans le balisage HTML d’un site, et utilisent ensuite ces structures comme indices pour aider leurs scripts à trouver les bonnes données dans le HTML de votre site.
+                    Si le balisage de votre site change fréquemment ou est incohérent, vous pourrez peut-être frustrer le scraper au point qu’il abandonne.
+                    Cela ne veut pas dire que vous devez refaire entièrement votre site. Il suffit de changer la classe et l’ID dans votre HTML (et les fichiers CSS correspondants) pour faire échouer la plupart des scrapers.</p>
+            </li>
+            <li>Intégrer l’information dans des medias objects
+                <p>La plupart des scrapers Web se contentent d’extraire une chaîne de texte d’un fichier HTML.
+                    Si le contenu de votre site web se trouve à l’intérieur d’une image, d’un film, d’un PDF ou d’un autre format non textuel, vous venez de compliquer considérablement la tâche du scraper : l’analyse du texte d’un objet n’est pas dans ses cordes.
+                    Le gros moins, c’est que cela peut rendre votre site lent à charger, qu’il sera beaucoup moins accessible pour les utilisateurs aveugles (ou autrement handicapés), et cela rendra la mise à jour du contenu difficile. Sans compter que Google ne va pas non plus aimer !</p>
+            </li>
+        </ol>
+<footer>
+    <h1>Les liens annexes</h1>
+    <a href="https://www.luxury-concept.com/dev-blog/346-le-scaping-des-donnees-pourquoi-et-comment.html">luxury-concept</a> <br>
+    <a href="https://www.cloudflare.com/fr-fr/learning/bots/what-is-click-fraud">cloudflare</a>
+    <br> <a href="https://www.guru99.com/web-scraping-tools.html">web-scraping-tools</a>
+</footer>
+</body>
+</html>
